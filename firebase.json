@@ -1,0 +1,35 @@
+{
+  "emulators": {
+    "functions": {
+      "host": "0.0.0.0",
+      "port": 5001
+    },
+    "firestore": {
+      "host": "0.0.0.0",
+      "port": 8080
+    },
+    "database": {
+      "host": "0.0.0.0",
+      "port": 9000
+    },
+    "pubsub": {
+      "host": "0.0.0.0",
+      "port": 8085
+    },
+    "hub": {
+      "host": "0.0.0.0",
+      "port": 4400
+    },
+    "gui": {
+      "host": "0.0.0.0",
+      "port": 4000
+    },
+    "logging": {
+      "host": "0.0.0.0",
+      "port": 4500
+    }
+  },
+  "database": {
+    "rules": "database.rules.json"
+  }
+}
