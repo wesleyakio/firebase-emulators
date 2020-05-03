@@ -18,6 +18,16 @@ After startup, direct your browser to http://0.0.0.0:4000/ and check out the bea
 
 The command above will map the ports for all the available services, if you don't need them then you can remove some of the the -p port maps. Each port corresponds to a service, you can find port vs service mappings in them in this project's [firebase.json](https://github.com/wesleyakio/firebase-emulators/blob/master/firebase.json)
 
+This image assumes you have a dev alias in your `.firebaserc` file, something like:
+```json
+{
+  "projects": {
+    "dev": "project-name-here"
+  }
+}
+```
+This project name is what you will use as the `ns` in Real Time Database.
+
 ***
 
 ### Realtime Database
@@ -25,7 +35,9 @@ The command above will map the ports for all the available services, if you don'
 If you need to restore your data into the realtime database, you can do so by running:
 
 ```sh
-curl -X PUT -d @your-data.json -H "Content-Type: application/json" http://localhost:9000/.json > /dev/null
+curl -X PUT -d @your-data.json -H "Content-Type: application/json" http://localhost:9000/.json?ns=project-name-here > /dev/null
 ```
+
+`project-name-here` needs to match the dev aliased project in your `.firebaserc` file 
 
 This image has a `Xmx` of 3GB for the Realtime database, so you should be able to import JSON files of up to 250MB into the database, if you need more than that then good luck :/
